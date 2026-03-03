@@ -15,9 +15,12 @@ func main() {
 	for _, word := range words {
 		wordCounts[word]++
 	}
-
-	for word, count := range wordCounts {
-		fmt.Printf("%s :  %d \n", word, count)
+	sortArray := make([]string, 0, len(wordCounts))
+	for word := range wordCounts {
+		sortArray = append(sortArray, word)
 	}
-	sortArray:=
+	sort.Strings(sortArray)
+	for _, val := range sortArray {
+		fmt.Printf("%s:%d \n", val, wordCounts[val])
+	}
 }
